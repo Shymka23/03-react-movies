@@ -21,14 +21,14 @@ export default function App() {
       setError(false);
       setMovies([]);
 
-      const data = await fetchMovies(query);
+      const movies = await fetchMovies(query);
 
-      if (!data.results.length) {
+      if (!movies.length) {
         toast.error("No movies found for your request");
         return;
       }
 
-      setMovies(data.results);
+      setMovies(movies);
     } catch (error) {
       setError(true);
       console.error("Fetch movies error:", error);
